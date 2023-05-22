@@ -49,7 +49,7 @@ public class GOL {
             }
         }
     }
-    public void getExample()
+    public void randomCreate()
     {
         Random r = new Random();
         int num = r.nextInt(wNUM*hNUM/4);
