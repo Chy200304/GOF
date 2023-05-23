@@ -1,8 +1,7 @@
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
+import java.awt.event.*;
+import java.util.TimerTask;
 
 public class WindowGOL extends JFrame {
     private GOL gol=new GOL();
@@ -11,9 +10,13 @@ public class WindowGOL extends JFrame {
     private JButton bRandom=new JButton();
     private JButton Clear=new JButton();
     private JPanel jPanel=new JPanel();
-
     private GridLayout gridlayout = new GridLayout(GOL.wNUM, GOL.hNUM);
-
+    private Timer timer=new Timer(1000, new AbstractAction() {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            gol.getNextState();
+        }
+    });
     WindowGOL(){
         //窗口属性设置
         this.setSize(GOL.SIZE*GOL.wNUM,GOL.SIZE*GOL.hNUM);
@@ -30,9 +33,16 @@ public class WindowGOL extends JFrame {
         SE.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                if(SE.getText()==("Start"))SE.setText("End");
-                else if(SE.getText()=="End")SE.setText("Start");
-                SE.repaint();
+                if(SE.getText()==("Start")){
+                    SE.setText("End");
+                    SE.repaint();
+                    timer.start();
+                }
+                if(SE.getText()==("End")){
+                    SE.setText("Start");
+                    SE.repaint();
+                    timer.stop();
+                }
             }
         });
         //介绍按钮设置

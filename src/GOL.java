@@ -11,17 +11,26 @@ public class GOL {
     private boolean [][]array = new boolean[hNUM][wNUM];
     GOL()
     {
-
+        for(int i=0;i<wNUM;i++)
+        {
+            for(int j=0;j<hNUM;j++)
+            {
+                array[i][j]=false;
+            }
+        }
     }
-    public int getNeighborNum(int x,int y)
+    private int getNeighborNum(int x,int y)
     {
         int num=0;
-        for(int i=x-1;i<=x+1;x++)
+        //if(x==0 || y==0){
+        //
+        //}
+        for(int i=x-1;i<=x+1;i++)
         {
             for(int j=y-1;j<=y+1;j++)
             {
-                if(i<0||i>wNUM||j<0||j>hNUM) continue;
-                if(i==x&&j==y) continue;
+                if(i<0 || i>=wNUM || j<0 || j>=hNUM) continue;
+                if(i==x && j==y) continue;
                 if(array[i][j]==true) num++;
             }
         }
@@ -47,7 +56,7 @@ public class GOL {
                     array[i][j]=false;
                 }
             }
-        }
+        }System.out.println(111);
     }
     public void randomCreate()
     {
