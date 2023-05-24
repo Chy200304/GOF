@@ -54,11 +54,11 @@ public class WindowGOL extends JFrame {
                 //buttonClicked.getLocation().
                 int x= (buttonClicked.getLocation().x-8)/ (GOL.SIZE-1);
                 int y= (buttonClicked.getLocation().y-7)/ (GOL.SIZE-3);
-                System.out.println(buttonClicked.getLocation().x);
+                /*System.out.println(buttonClicked.getLocation().x);
                 System.out.println(buttonClicked.getLocation().y);
                 System.out.println(centerPanel.getLocation().x);
-                System.out.println(centerPanel.getLocation().y);
-                System.out.println(x+" "+y);
+                System.out.println(centerPanel.getLocation().y);*/
+                //System.out.println(x+" "+y);
                 gol.SetArray(y,x);
                 showWorld();
 
