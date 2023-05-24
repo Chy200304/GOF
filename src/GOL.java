@@ -70,6 +70,7 @@ public class GOL {
     }
     public void getExample()
     {
+        clear();
         Random r = new Random();
         int num = r.nextInt(wNUM*hNUM/4);
         for(int i=0;i<num;i++){
